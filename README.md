@@ -56,28 +56,35 @@ ALB → EC2 (Node.js Backend) → RDS (MySQL)
 - Secure Cloud Deployment
 
 --------------
-
 ## Backend Structure
 
-ecommerce-app/
-│
-├── server.js
-├── app.js
-│
-├── config/
-│ └── db.js
-│
-├── middleware/
-│ └── authMiddleware.js
-│
-├── modules/
-│ ├── auth/
-│ ├── products/
-│ ├── cart/
-│ ├── orders/
-│
-└── utils/
+Root Directory
 
+server.js – Application entry point
+
+app.js – Express app configuration
+
+config/
+
+db.js – Database connection setup
+
+middleware/
+
+authMiddleware.js – JWT authentication middleware
+
+modules/
+
+auth/ – Registration & login logic
+
+products/ – Product APIs
+
+cart/ – Cart APIs
+
+orders/ – Order APIs
+
+utils/
+
+Helper functions and reusable utilities
 ------------
 ## Database Schema
 
