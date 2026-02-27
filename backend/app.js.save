@@ -1,0 +1,31 @@
+const express = require("express"); 
+const cors = require("cors");
+const connection = require("./config/db");
+const authRoutes = require('./modules/auth/authRoutes');
+const app = express(); 
+app.use(cors());
+app.use(express.json());
+
+
+app.use('/api/auth', authRoutes);
+// 👇 ADD THIS ROUTE HERE
+app.get("/api/test-db", (req, res) => {
+  co
+nnection.query("SELECT 1 + 1 AS result", (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err });
+    }
+    res.json(results);
+  });
+});
+
+app.get("/api/products", (req, res) => {
+  connection.query("SELECT * FROM products", (err, results) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(results);
+  });
+});
+
+module.exports=app;
